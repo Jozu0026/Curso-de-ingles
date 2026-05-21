@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Curso de Inglés de los Sábados 📚</title>
+    <style>
+        /* 🎨 DISEÑO ESTILO APP MÓVIL PREMIUM */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a; 
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 420px;
+            background-color: #1e293b;
+            border-radius: 28px;
+            padding: 30px 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            border: 1px solid #334155;
+        }
+
+        /* 👑 TÍTULO ULTRA LLAMATIVO */
+        .main-title {
+            font-size: 35px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #38bdf8, #f43f5e, #eab308); 
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        /* ✨ SUBTÍTULO MOTIVACIONAL DECORADO BONITO */
+        .motivation-subtitle {
+            font-size: 14px;
+            color: #f8fafc;
+            margin-bottom: 25px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e293b, #334155);
+            padding: 12px 15px;
+            border-radius: 16px;
+            border: 2px solid #eab308; 
+            box-shadow: 0 4px 10px rgba(234, 179, 8, 0.15);
+            line-height: 1.4;
+        }
+
+        .motivation-subtitle span {
+            color: #eab308;
+            display: block;
+            margin-top: 4px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* 🔄 EFECTO VOLTEAR TARJETA */
+        .flashcard-wrapper {
+            perspective: 1000px;
+            width: 100%;
+            height: 260px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .flashcard {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, #1e40af, #3b82f6); 
+            color: white;
+            border: 2px solid #60a5fa;
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, #065f46, #10b981); 
+            color: white;
+            transform: rotateY(180deg);
+            border: 2px solid #34d399;
+        }
+
+        .word {
+            font-size: 34px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            word-break: break-word;
+            padding: 0 10px;
+        }
+
+        /* 🗣️ PRONUNCIACIÓN ULTRA PRECISA */
+        .pronunciation {
+            font-size: 17px;
+            color: #fef08a; 
+            margin-top: 15px;
+            font-style: normal;
+            font-weight: 700;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 8px 18px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.15);
+            letter-spacing: 0.3px;
+        }
+
+        .meaning {
+            font-size: 30px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            word-break: break-word;
+            padding: 0 10px;
+        }
+
+        .hint {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.75);
+            position: absolute;
+            bottom: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* 🌟 SECCIÓN DE TRADUCCIÓN NUEVA, GRANDE Y LLAMATIVA DEBAJO */
+        .translation-container {
+            font-size: 26px;
+            font-weight: 800;
+            color: #10b981; /* Verde esmeralda brillante */
+            background-color: #0f172a;
+            padding: 15px;
+            border-radius: 18px;
+            margin-bottom: 25px;
+            border: 2px dashed #334155;
+            word-break: break-word;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .translation-container span {
+            color: #f8fafc; /* Color blanco para la palabra traducida */
+        }
+
+        /* 🔘 BOTONES DE NAVEGACIÓN */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn {
+            flex: 1;
+            background-color: #334155;
+            color: white;
+            border: none;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+            background-color: #475569;
+        }
+
+        .btn-next {
+            background: linear-gradient(135deg, #38bdf8, #0284c7);
+            color: #0f172a;
+        }
+
+        .btn-next:active {
+            background: #7dd3fc;
+        }
+
+        .counter {
+            font-size: 14px;
+            color: #38bdf8;
+            font-weight: 800;
+            min-width: 85px;
+            background-color: #0f172a;
+            padding: 8px 4px;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <h1 class="main-title">🔥 Curso de Inglés de los Sábados 🔥</h1>
+        <p class="motivation-subtitle">🎯 Repite 3 veces cada palabra para memorizarla. <span>⚡ Se constante ⚡</span></p>
+
+        <!-- Tarjeta Interactiva -->
+        <div class="flashcard-wrapper" onclick="handleCardClick()">
+            <div class="flashcard" id="card">
+                <!-- Frente (Inglés) -->
+                <div class="card-face card-front">
+                    <p class="word" id="word-en">House</p>
+                    <p class="pronunciation" id="pron-en">jaus</p>
+                    <p class="hint">👆 Toca para voltear tarjeta</p>
+                </div>
+                <!-- Atrás (Reverso informativo adicional) -->
+                <div class="card-face card-back">
+                    <p class="meaning" id="word-back-en">House</p>
+                    <p class="hint">👆 Toca para regresar</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🌟 NUEVA TRADUCCIÓN GIGANTE SOLICITADA DEBAJO DE LA TARJETA -->
+        <div class="translation-container" id="translation-box">
+            Traducción: <span id="word-es">Casa</span>
+        </div>
+
+        <!-- Controles -->
+        <div class="controls">
+            <button class="btn" onclick="prevCard(event)">◀ Ant.</button>
+            <span class="counter" id="counter">1 / 200</span>
+            <button class="btn btn-next" onclick="nextCard(event)">Sig. ▶</button>
+        </div>
+    </div>
+
+    <script>
+        // 📊 BASE DE DATOS DE 200 PALABRAS CON REGLAS FONÉTICAS ESTRICTAS
+        const vocabulary = [
+            // --- HOGAR ---
+            { en: "House", pron: "jaus", es: "Casa" },
+            { en: "Door", pron: "dor", es: "Puerta" },
+            { en: "Window", pron: "uíndou", es: "Ventana" },
+            { en: "Table", pron: "téibol", es: "Mesa" },
+            { en: "Chair", pron: "chér", es: "Silla" },
+            { en: "Bed", pron: "bed", es: "Cama" },
+            { en: "Kitchen", pron: "kítchen", es: "Cocina" },
+            { en: "Bathroom", pron: "bátrum", es: "Baño" },
+            { en: "Bedroom", pron: "bédrum", es: "Dormitorio" },
+            { en: "Living room", pron: "lívin rum", es: "Sala" },
+            { en: "Key", pron: "kí", es: "Llave" },
+            { en: "Wall", pron: "uól", es: "Pared" },
+            { en: "Floor", pron: "flor", es: "Piso / Suelo" },
+            { en: "Roof", pron: "ruf", es: "Techo" },
+            { en: "Mirror", pron: "míror", es: "Espejo" },
+            { en: "Spoon", pron: "spun", es: "Cuchara" },
+            { en: "Fork", pron: "fork", es: "Tenedor" },
+            { en: "Knife", pron: "náif", es: "Cuchillo" },
+            { en: "Plate", pron: "pléit", es: "Plato" },
+            { en: "Cup", pron: "kap", es: "Taza" },
+            { en: "Glass", pron: "glás", es: "Vaso" },
+            { en: "Refrigerator", pron: "refríyéréitor", es: "Refrigeradora" },
+            { en: "Television", pron: "televíshon", es: "Televisión" },
+            { en: "Clock", pron: "klok", es: "Reloj de pared" },
+            { en: "Watch", pron: "uótch", es: "Reloj de mano" },
+            { en: "Sofa", pron: "sóufa", es: "Sillón / Sofá" },
+            { en: "Pillow", pron: "pílou", es: "Almohada" },
+            { en: "Blanket", pron: "blánket", es: "Cobija / Manta" },
+            { en: "Closet", pron: "klóset", es: "Ropero / Clóset" },
+            { en: "Stairs", pron: "stérs", es: "Escaleras" },
+            { en: "Curtain", pron: "kérten", es: "Cortina" },
+            { en: "Lamp", pron: "lámp", es: "Lámpara" },
+            { en: "Fan", pron: "fán", es: "Ventilador" },
+            { en: "Broom", pron: "brum", es: "Escoba" },
+            { en: "Towels", pron: "táuels", es: "Toallas" },
+            { en: "Soap", pron: "sóup", es: "Jabón" },
+            { en: "Toothbrush", pron: "tútbrash", es: "Cepillo de dientes" },
+            { en: "Toothpaste", pron: "tútpéist", es: "Pasta de dientes" },
+            { en: "Shampoo", pron: "shampú", es: "Champú" },
+            { en: "Sink", pron: "sink", es: "Lavamanos / Fregadero" },
+            { en: "Iron", pron: "áiron", es: "Plancha" },
+            { en: "Stove", pron: "stóuv", es: "Estufa" },
+            { en: "Oven", pron: "áven", es: "Horno" },
+            { en: "Microwave", pron: "máikrouuéiv", es: "Microondas" },
+            { en: "Washing machine", pron: "uóshin mashín", es: "Lavadora" },
+            { en: "Garbage can", pron: "gárbidch kán", es: "Basurero" },
+            { en: "Yard", pron: "iárd", es: "Patio" },
+            { en: "Garage", pron: "garádch", es: "Garaje" },
+            { en: "Fence", pron: "fens", es: "Cerca / Muro" },
+            { en: "Ceiling", pron: "sílin", es: "Cielo raso" },
+
+            // --- AULA DE CLASES Y ÚTILES ---
+            { en: "Classroom", pron: "klásrum", es: "Aula de clases" },
+            { en: "Desk", pron: "desk", es: "Escritorio / Pupitre" },
+            { en: "Whiteboard", pron: "uáitbord", es: "Pizarra blanca" },
+            { en: "Marker", pron: "márker", es: "Marcador" },
+            { en: "Eraser", pron: "iréiser", es: "Borrador" },
+            { en: "Notebook", pron: "nóutbuk", es: "Cuaderno" },
+            { en: "Pen", pron: "pen", es: "Bolígrafo / Lápiz tinta" },
+            { en: "Pencil", pron: "pénsil", es: "Lápiz" },
+            { en: "Sharpener", pron: "shárpener", es: "Sacapuntas" },
+            { en: "Ruler", pron: "rúler", es: "Regla" },
+            { en: "Scissors", pron: "sísors", es: "Tijeras" },
+            { en: "Glue", pron: "glu", es: "Pegamento" },
+            { en: "Backpack", pron: "bákpák", es: "Mochila" },
+            { en: "Bookcase", pron: "búkkéis", es: "Estante de libros" },
+            { en: "Map", pron: "máp", es: "Mapa" },
+            { en: "Globe", pron: "glóub", es: "Globo terráqueo" },
+            { en: "Computer", pron: "kompiúter", es: "Computadora" },
+            { en: "Projector", pron: "proiéktor", es: "Proyector" },
+            { en: "Keyboard", pron: "kíbord", es: "Teclado" },
+            { en: "Mouse", pron: "máus", es: "Ratón / Mouse" },
+            { en: "Folder", pron: "fóulder", es: "Carpeta / Folder" },
+            { en: "Paper", pron: "péiper", es: "Papel" },
+            { en: "Crayons", pron: "kréions", es: "Crayolas" },
+            { en: "Calculator", pron: "kálkiuléitor", es: "Calculadora" },
+            { en: "Dictionary", pron: "díkshonéri", es: "Diccionario" },
+            { en: "Notebook paper", pron: "nóutbuk péiper", es: "Hojas de líneas" },
+            { en: "Colored pencils", pron: "kálord pénsils", es: "Lápices de colores" },
+            { en: "Highlighter", pron: "jailáiter", es: "Resaltador" },
+            { en: "Stapler", pron: "stéipler", es: "Engrapadora" },
+            { en: "Tape", pron: "téip", es: "Cinta adhesiva" },
+            { en: "Desk lamp", pron: "desk lámp", es: "Lámpara de escritorio" },
+            { en: "Calendar", pron: "kálandar", es: "Calendario" },
+            { en: "Bulletin board", pron: "búletin bord", es: "Mural de avisos" },
+            { en: "Chalk", pron: "chók", es: "Tiza" },
+            { en: "Locker", pron: "lóker", es: "Casillero" },
+            { en: "Uniform", pron: "iúniform", es: "Uniforme" },
+            { en: "Student ID", pron: "stiúdent áidí", es: "Carnet de estudiante" },
+            { en: "Bell", pron: "bel", es: "Timbre / Campana" },
+            { en: "Playground", pron: "pléigráund", es: "Patio de recreo" },
+            { en: "Library", pron: "láibreri", es: "Biblioteca" },
+            { en: "Laboratory", pron: "lábrotóri", es: "Laboratorio" },
+            { en: "Principal's office", pron: "prínsipals óvis", es: "Dirección" },
+            { en: "Restroom", pron: "réstrum", es: "Sanitario / Baño escolar" },
+            { en: "Cafeteria", pron: "kafetíria", es: "Cafetería / Comedor" },
+            { en: "Gym", pron: "dchím", es: "Gimnasio" },
+            { en: "Auditorium", pron: "óditórium", es: "Auditorio" },
+            { en: "Desk chair", pron: "desk chér", es: "Silla de pupitre" },
+            { en: "Trash bin", pron: "trásh bin", es: "Cesto de basura" },
+            { en: "Pencil case", pron: "pénsil kéis", es: "Cartuchera / Estuche" },
+            { en: "Notebook spiral", pron: "nóutbuk spáiral", es: "Cuaderno de espiral" },
+
+            // --- ALUMNOS Y MAESTROS / ACCIONES ---
+            { en: "Teacher", pron: "tícher", es: "Profesor / Maestro" },
+            { en: "Student", pron: "stiúdent", es: "Estudiante / Alumno" },
+            { en: "Classmate", pron: "klásméit", es: "Compañero de clase" },
+            { en: "Principal", pron: "prínsipal", es: "Director/a" },
+            { en: "Lesson", pron: "léson", es: "Lección" },
+            { en: "Homework", pron: "jóumuérk", es: "Tarea" },
+            { en: "Exam / Test", pron: "egzám / test", es: "Examen / Prueba" },
+            { en: "Grade / Score", pron: "gréid / skor", es: "Nota / Calificación" },
+            { en: "Attendance", pron: "aténdans", es: "Asistencia" },
+            { en: "Present", pron: "présent", es: "Presente" },
+            { en: "Absent", pron: "ábsent", es: "Ausente" },
+            { en: "Question", pron: "kuéschón", es: "Pregunta" },
+            { en: "Answer", pron: "ánser", es: "Respuesta" },
+            { en: "Mistake", pron: "mistéik", es: "Error" },
+            { en: "Correct", pron: "korékt", es: "Correcto" },
+            { en: "To read", pron: "tu ríd", es: "Leer" },
+            { en: "To write", pron: "tu ráit", es: "Escribir" },
+            { en: "To listen", pron: "tu lísen", es: "Escuchar" },
+            { en: "To speak", pron: "tu spík", es: "Hablar" },
+            { en: "To study", pron: "tu stádi", es: "Estudiar" },
+            { en: "To learn", pron: "tu lérn", es: "Aprender" },
+            { en: "To teach", pron: "tu tích", es: "Enseñar" },
+            { en: "To ask", pron: "tu ásk", es: "Preguntar" },
+            { en: "To explain", pron: "tu ekspléin", es: "Explicar" },
+            { en: "To understand", pron: "tu ánderstánd", es: "Entender" },
+            { en: "To practice", pron: "tu práktis", es: "Practicar" },
+            { en: "To repeat", pron: "tu ripít", es: "Repetir" },
+            { en: "To open", pron: "tu óupen", es: "Abrir" },
+            { en: "To close", pron: "tu klóuz", es: "Cerrar" },
+            { en: "To sit down", pron: "tu sit dáun", es: "Sentarse" },
+            { en: "To stand up", pron: "tu stánd áp", es: "Ponerse de pie" },
+            { en: "To raise your hand", pron: "tu réis íor hánd", es: "Levantar la mano" },
+            { en: "To pay attention", pron: "tu péi aténshon", es: "Prestar atención" },
+            { en: "To silent", pron: "tu sáilent", es: "Hacer silencio" },
+            { en: "Group work", pron: "grup uérk", es: "Trabajo en grupo" },
+            { en: "Team", pron: "tím", es: "Equipo" },
+            { en: "Project", pron: "proiékt", es: "Proyecto" },
+            { en: "Presentation", pron: "presentéishon", es: "Exposición / Presentación" },
+            { en: "Recess / Break", pron: "ríses / bréik", es: "Recreo / Receso" },
+            { en: "Alphabet", pron: "álfabet", es: "Alfabeto" },
+            { en: "Numbers", pron: "námbers", es: "Números" },
+            { en: "Vocabulary", pron: "vokábiuléri", es: "Vocabulario" },
+            { en: "Sentence", pron: "séntens", es: "Oración" },
+            { en: "Word", pron: "uérd", es: "Palabra" },
+            { en: "Page", pron: "péidch", es: "Página" },
+            { en: "Subject", pron: "sábdchekt", es: "Materia / Asignatura" },
+            { en: "English", pron: "ínglish", es: "Inglés" },
+            { en: "Math", pron: "mát", es: "Matemáticas" },
+            { en: "Science", pron: "sáiens", es: "Ciencias" },
+            { en: "History", pron: "jístori", es: "Historia" },
+
+            // --- FRASES COMUNES Y MÁS OBJETOS ---
+            { en: "Good morning", pron: "gud mórnin", es: "Buenos días" },
+            { en: "Good afternoon", pron: "gud áfternun", es: "Buenas tardes" },
+            { en: "Thank you", pron: "tánk iu", es: "Gracias" },
+            { en: "You are welcome", pron: "iú ar uélkam", es: "De nada" },
+            { en: "Please", pron: "plís", es: "Por favor" },
+            { en: "Excuse me", pron: "ekskiús mí", es: "Disculpe / Con permiso" },
+            { en: "I have a question", pron: "ái jáv a kuéschón", es: "Tengo una pregunta" },
+            { en: "Can you repeat?", pron: "kán iú ripít", es: "¿Puede repetir?" },
+            { en: "I don't know", pron: "ái dóunt nóu", es: "No lo sé" },
+            { en: "I understand", pron: "ái ánderstánd", es: "Yo entiendo" },
+            { en: "Welcome", pron: "uélkam", es: "Bienvenido" },
+            { en: "Goodbye", pron: "gudbái", es: "Adiós" },
+            { en: "See you later", pron: "sí iú léiter", es: "Nos vemos luego" },
+            { en: "Sit down, please", pron: "sit dáun plís", es: "Siéntese, por favor" },
+            { en: "Open your book", pron: "óupen íor búk", es: "Abran su libro" },
+            { en: "Close your notebook", pron: "klóuz íor nóutbuk", es: "Cierren su cuaderno" },
+            { en: "Listen to me", pron: "lísen tu mí", es: "Escúchenme" },
+            { en: "Look at the board", pron: "lúk át té bord", es: "Miren la pizarra" },
+            { en: "Perfect", pron: "pérfekt", es: "Perfecto" },
+            { en: "Excellent", pron: "ékselent", es: "Excelente" },
+            { en: "Very good", pron: "véri gúd", es: "Muy bien" },
+            { en: "Try again", pron: "trái agén", es: "Inténtalo de nuevo" },
+            { en: "Computer lab", pron: "kompiúter láb", es: "Laboratorio de cómputo" },
+            { en: "Water bottle", pron: "uáter bótel", es: "Botella de agua" },
+            { en: "Lunch box", pron: "lánch bóks", es: "Lonchera" },
+            { en: "Food court", pron: "fúd kórt", es: "Zona de comidas" },
+            { en: "Living room TV", pron: "lívin rúm tíví", es: "Televisor de la sala" },
+            { en: "Dining table", pron: "dáinin téibol", es: "Comedor / Mesa" },
+            { en: "Books", pron: "búks", es: "Libros" },
+            { en: "Pens", pron: "péns", es: "Plumas / Lápices tinta" },
+            { en: "Backyard garden", pron: "bákiárd gárden", es: "Jardín del patio" },
+            { en: "Front door", pron: "frónt dór", es: "Puerta principal" },
+            { en: "Kitchen sink", pron: "kítchen sínk", es: "Lavatrastos / Fregadero" },
+            { en: "Bed sheets", pron: "béd shíts", es: "Sábanas" },
+            { en: "Bath towel", pron: "bát táuel", es: "Toalla de baño" },
+            { en: "Wall clock", pron: "uól klók", es: "Reloj de pared" },
+            { en: "Ceiling fan", pron: "sílin fán", es: "Ventilador de techo" },
+            { en: "Door key", pron: "dór kí", es: "Llave de la puerta" },
+            { en: "Window glass", pron: "uíndou glás", es: "Vidrio de la ventana" },
+            { en: "Floor mat", pron: "flór mát", es: "Alfombra de piso / Tapete" },
+            { en: "Study room", pron: "stádi rúm", es: "Cuarto de estudio" },
+            { en: "House roof", pron: "jaus rúf", es: "Techo de la casa" },
+            { en: "Main hallway", pron: "méin jóluéi", es: "Pasillo principal" },
+            { en: "School bus", pron: "skúl bás", es: "Autobús escolar" },
+            { en: "Teacher's desk", pron: "tíchers désk", es: "Escritorio del maestro" },
+            { en: "Student backpack", pron: "stiúdent bákpák", es: "Mochila del alumno" },
+            { en: "Whiteboard marker", pron: "uáitbord márker", es: "Marcador de pizarra" },
+            { en: "Paper sheet", pron: "péiper shít", es: "Hoja de papel" },
+            { en: "English class", pron: "ínglish klás", es: "Clase de inglés" },
+            { en: "Saturday course", pron: "sáterdei kórs", es: "Curso del sábado" }
+        ];
+
+        let currentIndex = 0;
+        const cardElement = document.getElementById('card');
+        const wordEnElement = document.getElementById('word-en');
+        const wordBackEnElement = document.getElementById('word-back-en');
+        const pronEnElement = document.getElementById('pron-en');
+        const wordEsElement = document.getElementById('word-es');
+        const counterElement = document.getElementById('counter');
+
+        function handleCardClick() {
+            cardElement.classList.toggle('flipped');
+        }
+
+        function updateCard() {
+            cardElement.classList.remove('flipped');
+            
+            setTimeout(() => {
+                const currentWord = vocabulary[currentIndex];
+                wordEnElement.innerText = currentWord.en;
+                wordBackEnElement.innerText = currentWord.en;
+                pronEnElement.innerText = currentWord.pron;
+                wordEsElement.innerText = currentWord.es;
+                counterElement.innerText = `${currentIndex + 1} / ${vocabulary.length}`;
+            }, 100);
+        }
+
+        function nextCard(event) {
+            event.stopPropagation(); 
+            if (currentIndex < vocabulary.length - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; 
+            }
+            updateCard();
+        }
+
+        function prevCard(event) {
+            event.stopPropagation(); 
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = vocabulary.length - 1; 
+            }
+            updateCard();
+        }
+
+        window.onload = function() {
+            const currentWord = vocabulary[currentIndex];
+            wordEnElement.innerText = currentWord.en;
+            wordBackEnElement.innerText = currentWord.en;
+            pronEnElement.innerText = currentWord.pron;
+            wordEsElement.innerText = currentWord.es;
+            counterElement.innerText = `1 / ${vocabulary.length}`;
+        };
+    </script>
+
+</body>
+</html>
