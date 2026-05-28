@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Curso de Inglés de los Sábados 📚</title>
+    <style>
+        /* 🎨 DISEÑO ESTILO APP MÓVIL PREMIUM */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a; 
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 440px;
+            background-color: #1e293b;
+            border-radius: 28px;
+            padding: 25px 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            border: 1px solid #334155;
+        }
+
+        /* 👑 TÍTULO ULTRA LLAMATIVO */
+        .main-title {
+            font-size: 34px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #eab308, #38bdf8, #f43f5e); 
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        /* ✨ SUBTÍTULO DECORADO BONITO */
+        .motivation-subtitle {
+            font-size: 15px;
+            color: #f8fafc;
+            margin-bottom: 25px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e293b, #334155);
+            padding: 12px 15px;
+            border-radius: 16px;
+            border: 2px solid #eab308; 
+            box-shadow: 0 4px 10px rgba(234, 179, 8, 0.15);
+            line-height: 1.4;
+        }
+
+        /* 👶 TEXTO EXPLICATIVO PARA NIÑOS */
+        .kids-intro {
+            background-color: #0f172a;
+            border-radius: 18px;
+            padding: 15px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #e2e8f0;
+            text-align: left;
+            margin-bottom: 20px;
+            border-left: 5px solid #38bdf8;
+        }
+
+        /* 🖼️ ILUSTRACIONES CON EMOJIS COMPARTIDOS */
+        .kids-poster {
+            font-size: 55px;
+            background: linear-gradient(135deg, #1e3a8a, #0f172a);
+            padding: 12px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            border: 2px solid #334155;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* 📂 CATEGORÍAS EN ORDEN CRONOLÓGICO */
+        .category-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: #eab308;
+            text-align: left;
+            margin: 20px 0 10px 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+        }
+
+        .grammar-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .grammar-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0f172a;
+            padding: 12px 14px;
+            border-radius: 14px;
+            border: 1px solid #334155;
+            gap: 10px;
+        }
+
+        .word-column {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .lang-en {
+            font-size: 22px;
+            font-weight: 800;
+            color: #38bdf8;
+            line-height: 1.1;
+        }
+
+        /* 🗣️ PRONUNCIACIÓN MEJORADA */
+        .lang-pron {
+            font-size: 13px;
+            font-weight: 700;
+            color: #fef08a; 
+            background-color: rgba(234, 179, 8, 0.15);
+            padding: 2px 6px;
+            border-radius: 6px;
+            margin-top: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .lang-es {
+            font-size: 17px;
+            font-weight: 700;
+            color: #10b981;
+            text-align: right;
+            word-break: break-word;
+        }
+
+        /* 🌟 BLOQUES DE EJEMPLOS PRÁCTICOS */
+        .example-box {
+            background-color: #0f172a;
+            border-radius: 14px;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1px dashed #f43f5e;
+            text-align: left;
+        }
+        .ex-en { font-size: 18px; font-weight: 800; color: #38bdf8; }
+        .ex-pr { font-size: 13px; color: #fef08a; font-weight: 700; font-style: italic; background-color: rgba(254, 240, 138, 0.1); padding: 2px 6px; border-radius: 6px; display: inline-block; margin: 3px 0; }
+        .ex-es { font-size: 15px; font-weight: 600; color: #f8fafc; }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- 👑 TÍTULO SOLICITADO -->
+        <h1 class="main-title">✨ Describing People ✨</h1>
+        
+        <!-- ✨ SUBTÍTULO INTERACTIVO -->
+        <p class="motivation-subtitle">🕵️‍♂️ ¡Vamos a aprender cómo describir físicamente a las personas! 🕵️‍♀️</p>
+        
+        <!-- 👶 EXPLICACIÓN BREVE PARA NIÑOS -->
+        <div class="kids-intro">
+            👋 ¡Hola amiguito! Describir a las personas significa decir cómo se ven por fuera. 👀 <br><br>
+            Para hacerlo de forma ordenada, siempre usamos estas 5 súper categorías: ¡su edad, su estatura, su cuerpo, su cabello y sus hermosos ojos! 🌟
+        </div>
+
+        <!-- 🖼️ IMAGEN ALUSIVA CON EMOJIS -->
+        <div class="kids-poster">
+            👶 👦 👩 👴 💈
+        </div>
+
+        <!-- ================= ORDEN DE LA GUÍA DE VOCABULARIO ================= -->
+
+        <!-- 1. AGE (EDAD) -->
+        <div class="category-title">⏰ 1. Age (Éidch) - Edad</div>
+        <div class="grammar-list">
+            <div class="grammar-row">
+                <div class="word-column"><span class="lang-en">Baby</span><span class="lang-pron">béibi</span></div>
+                <span class="lang-es">Bebé 👶</span>
+            </div>
+            <div class="grammar-row">
+                <div class="word-column"><span class="lang-en">Child</span><span class="lang-pron">cháild</span></div>
+                <span class="lang-es">Niño / Niña 👦</span>
+            </div>
+            <div class="grammar-row">
+                <div class="word-column"><span class="lang-en">Young</span><span class="lang-pron">iáng</span></div>
+                <span class="lang-es">Joven 🧑</span>
+            </div>
+            <div class="grammar-row">
+                <div class="word-column"><span class="lang-en">Old</span><span class="lang-pron">óuld</span></div>
+                <span class="lang-es">Anciano / Viejo 👴</span>
+            </div>
+        </div>
+
+        <!-- 2. HEIGHT (ESTATURA) -->
+        <div class="category-title">📐 2. Height (Jáit) - Estatura</div>
+        <div class="grammar-list">
+            <div class="grammar-row">
+                <div class="word-column"><span class="lang-en">Tall</span><span class="lang-pron">tól</span></div>
+                <span class="lang-es">Alto 🦒</span>
+            </div>
+            <div class="grammar-row">
+                <div class="word-column"><span class="lang-en">Medium height</span><span class="lang-pron">mídium jáit</span></div>
+                <span class="lang-es">Estatura media 🧍</span>
+            </div>
+            <div class="grammar-row">
+                <div class="word-column"><span class="lang-en">Short</span><span class="lang-pron">shórt</span></div>
+                <span class="lang-es">Bajo / Pequeño 🐢</span>
+            </div>
+        </div>
+
+        <!-- 3. BUILD (COMPLEXIÓN / CUERPO) -->
+        <div class="category-title">💪 3. Build (Bíld) - Complexión</div>
+        <div class="grammar-list">
+            <div class="grammar-row">
+                <div class="word-column"><span class="lang-en">Thin</span><span class="lang-pron">zín</span></div>
+                <span class="lang-es">Delgado 🪡</span>
+            </div>
+            <div class="grammar-row">
+                <div class="word-column"><span class="lang-en">Slim</span><span class="lang-pron">slím</span></div>
+                <span class="lang-es">Esbelto / Delgado sano 🏃‍♂️</span>
+            </div>
+            <div class="grammar-row">
+                <div class="word-column"><span class="lang-en">Medium build</span><span class="lang-pron">mídium bíld</span></div>
+                <span class="lang-es">Cuerpo promedio 🧍‍♀️</span>
+            </div>
+            <div class="grammar-row">
+                <div class="word-column"><span class="lang-en">Chubby</span><span class="lang-pron">chábi</span></div>
+                <span class="lang-es">Gordito / Rellenito 🐻</span>
+            </div>
+        </div>
+
+        <!-- 4. HAIR (CABELLO) -->
+        <div class="category-title">💈 4. Hair (Jér) - Cabello</div>
+        <div class="grammar-list">
+            <div class="grammar-row">
+                <div class="word-column"><span class="lang-en">Long hair</span><span class="lang-pron">lóng jér</span></div>
+                <span class="lang-es">Cabello largo 💇‍♀️</span>
+            </div>
+            <div class="grammar-row">
+                <div class="word-column"><span class="lang-en">Short hair</span><span class="lang-pron">shórt jér</span></div>
+                <span class="lang-es">Cabello corto 💇‍♂️</span>
+            </div>
+            <div class="grammar-row">
+                <div class="word-column"><span class="lang-en">Straight hair</span><span class="lang-pron">stréit jér</span></div>
+                <span class="lang-es">Cabello lacio 👩</span>
+            </div>
+            <div class="grammar-row">
+                <div class="word-column"><span class="lang-en">Wavy hair</span><span class="lang-pron">uéivi jér</span></div>
+                <span class="lang-es">Cabello ondulado 🧑‍🦱</span>
+            </div>
+            <div class="grammar-row">
+                <div class="word-column"><span class="lang-en">Curly hair</span><span class="lang-pron">kérli jér</span></div>
+                <span class="lang-es">Cabello rizado / Crespo 👩‍🦱</span>
+            </div>
+            <div class="grammar-row">
+                <div class="word-column"><span class="lang-en">Bald</span><span class="lang-pron">bóld</span></div>
+                <span class="lang-es">Calvo / Sin cabello 👨‍trón</span>
+            </div>
+        </div>
+
+        <!-- 5. EYES (OJOS) -->
+        <div class="category-title">👁️ 5. Eyes (Áis) - Ojos</div>
+        <div class="grammar-list">
+            <div class="grammar-row">
+                <div class="word-column"><span class="lang-en">Blue eyes</span><span class="lang-pron">blú áis</span></div>
+                <span class="lang-es">Ojos azules 💙</span>
+            </div>
+            <div class="grammar-row">
+                <div class="word-column"><span class="lang-en">Green eyes</span><span class="lang-pron">grín áis</span></div>
+                <span class="lang-es">Ojos verdes 💚</span>
+            </div>
+            <div class="grammar-row">
+                <div class="word-column"><span class="lang-en">Brown eyes</span><span class="lang-pron">bráun áis</span></div>
+                <span class="lang-es">Ojos cafés / marrones 🤎</span>
+            </div>
+            <div class="grammar-row">
+                <div class="word-column"><span class="lang-en">Big eyes</span><span class="lang-pron">bíg áis</span></div>
+                <span class="lang-es">Ojos grandes 👁️</span>
+            </div>
+        </div>
+
+        <!-- ================= SECCIÓN DE 5 EJEMPLOS EN INGLÉS Y ESPAÑOL ================= -->
+        <div class="category-title" style="color:#f43f5e;">📝 Ejemplos de Oraciones:</div>
+        
+        <div class="example-box">
+            <p class="ex-en">1. He is a tall boy</p>
+            <p class="ex-pr">Pronunciación: jí is a tól bói</p>
+            <p class="ex-es">Traducción: Él es un niño alto 🦒</p>
+        </div>
+
+        <div class="example-box">
+            <p class="ex-en">2. She has long straight hair</p>
+            <p class="ex-pr">Pronunciación: shí jás lóng stréit jér</p>
+            <p class="ex-es">Traducción: Ella tiene el cabello largo y lacio 👩</p>
+        </div>
+
+        <div class="example-box">
+            <p class="ex-en">3. My grandfather is old</p>
+            <p class="ex-pr">Pronunciación: mái grándfáder is óuld</p>
+            <p class="ex-es">Traducción: Mi abuelo es anciano 👴</p>
+        </div>
+
+        <div class="example-box">
+            <p class="ex-en">4. The baby has blue eyes</p>
+            <p class="ex-pr">Pronunciación: zé béibi jás blú áis</p>
+            <p class="ex-es">Traducción: El bebé tiene ojos azules 👶💙</p>
+        </div>
+
+        <div class="example-box">
+            <p class="ex-en">5. She is short and chubby</p>
+            <p class="ex-pr">Pronunciación: shí is shórt ánd chábi</p>
+            <p class="ex-es">Traducción: Ella es baja y gordita 🐻</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
