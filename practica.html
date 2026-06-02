@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase de Inglés de los Sábados</title>
+    <style>
+        /* Estilos generales optimizados para móviles */
+        body {
+            font-family: 'Comic Sans MS', 'Nunito', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff4500;
+            font-size: 2.2em;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px #ffe4b5;
+        }
+
+        h2 {
+            color: #1e90ff;
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            color: #32cd32;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            text-align: left;
+            padding: 0 10px;
+        }
+
+        .highlight {
+            font-size: 1.3em;
+            color: #ff1493;
+            font-weight: bold;
+        }
+
+        /* Botones del menú principal */
+        .btn-menu {
+            display: block;
+            width: 90%;
+            max-width: 350px;
+            margin: 15px auto;
+            padding: 15px;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: white;
+            background-color: #ff8c00;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 5px 0 #cc7000;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-menu:active {
+            transform: translateY(5px);
+            box-shadow: 0 0 0 #cc7000;
+        }
+
+        .btn-menu:nth-child(1) { background-color: #9370db; box-shadow: 0 5px 0 #7b68ee; }
+        .btn-menu:nth-child(2) { background-color: #32cd32; box-shadow: 0 5px 0 #228b22; }
+        .btn-menu:nth-child(3) { background-color: #1e90ff; box-shadow: 0 5px 0 #0000cd; }
+
+        /* Estilos de las secciones */
+        .section {
+            display: none;
+            background-color: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .active {
+            display: block;
+        }
+
+        /* Botón de regresar */
+        .btn-back {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.2em;
+            border-radius: 15px;
+            margin-top: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 0 #cd5c5c;
+        }
+
+        /* Botón de WhatsApp */
+        .btn-whatsapp {
+            display: block;
+            width: 100%;
+            max-width: 350px;
+            margin: 30px auto 10px;
+            background-color: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border-radius: 15px;
+            box-shadow: 0 4px 0 #128C7E;
+        }
+
+        /* Listas y viñetas */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        li {
+            background-color: #fffacd;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 15px;
+            border-left: 5px solid #ffd700;
+            font-size: 1.1em;
+        }
+
+        .english { font-weight: bold; color: #000080; }
+        .spanish { color: #555; }
+        .pronunciation { font-style: italic; color: #ff4500; font-size: 1.2em; font-weight: bold; display: block; margin-top: 5px; }
+
+        /* Dialogo */
+        .dialogue {
+            background-color: #e6e6fa;
+            padding: 15px;
+            border-radius: 15px;
+            text-align: left;
+            margin-top: 20px;
+        }
+        
+        .person1 { color: #8a2be2; font-weight: bold; }
+        .person2 { color: #ff69b4; font-weight: bold; }
+
+    </style>
+</head>
+<body>
+
+    <div id="main-menu" class="active">
+        <h1>🌟 Clase de inglés de los sábados 🌟</h1>
+        <h2>Para "Maylin, Merlin, Ashly, Zoé y Diego" 👧👦</h2>
+        <p style="text-align: center; margin-bottom: 30px;">¡Elige una opción para comenzar a aprender y divertirte!</p>
+        
+        <button class="btn-menu" onclick="showSection('pronunciation-section')">🗣️ 1. Pronunciando el inglés</button>
+        <button class="btn-menu" onclick="showSection('vocabulary-section')">🏠 2. Vocabulario</button>
+        <button class="btn-menu" onclick="showSection('greetings-section')">👋 3. Los saludos</button>
+    </div>
+
+    <div id="pronunciation-section" class="section">
+        <h3>🗣️ Hablando inglés sin pena 🗣️</h3>
+        
+        <p>¡Hola niños! 👋 Hoy vamos a hablar de algo súper importante: <strong>La pronunciación</strong>. ¿Qué es eso? Es simplemente cómo hacemos que las palabras suenen al hablar.</p>
+        
+        <p>Aprender un idioma nuevo es como aprender a andar en bicicleta 🚲. Al principio puede sentirse un poco extraño, o podemos tropezar con las palabras, ¡y eso está perfectamente bien! <strong>NO deben tener pena ni timidez.</strong> Todos los que hablan inglés pasaron por lo mismo que ustedes al principio.</p>
+        
+        <p>El gran secreto mágico para sonar genial es: <strong>¡Repetir, repetir y repetir!</strong> 🔁 Si lo repiten en voz alta en casa, cada vez sonará mejor.</p>
+
+        <hr style="border: 1px dashed #ccc; margin: 20px 0;">
+
+        <p><strong>💡 Trucos fáciles para sonar súper bien:</strong></p>
+        <ul>
+            <li>
+                <strong>El sonido de la "H":</strong> En inglés, muchas veces la "H" suena como una "J" suave.
+                <br>Por ejemplo: <em>Hello</em> se pronuncia <span class="highlight">Jelóu</span>.
+            </li>
+            <li>
+                <strong>La tilde imaginaria:</strong> En nuestras clases, van a ver que le pongo tildes a las pronunciaciones (como <em>Tícher</em>). ¡En inglés no se escriben tildes! Pero yo se las pongo aquí como un truco visual para que sepan en qué parte de la palabra deben hablar <strong>más fuerte</strong>.
+            </li>
+        </ul>
+
+        <p><strong>¡Practiquemos!</strong> Lean la palabra grande en voz alta:</p>
+        <ul>
+            <li>
+                <span class="english">Happy</span> (Feliz)
+                <span class="pronunciation">Jápi</span>
+            </li>
+            <li>
+                <span class="english">I love my dog</span> (Amo a mi perro)
+                <span class="pronunciation">Ái lóv mái dóg</span>
+            </li>
+            <li>
+                <span class="english">See you later</span> (Nos vemos luego)
+                <span class="pronunciation">Síi iú léiter</span>
+            </li>
+        </ul>
+        
+        <p>¡Dejen la pena a un lado y hablen fuerte y claro! Ustedes son muy inteligentes y lo van a lograr. 🏆</p>
+
+        <button class="btn-back" onclick="showSection('main-menu')">⬅️ Regresar al menú principal</button>
+    </div>
+
+    <div id="vocabulary-section" class="section">
+        <h3>🏠 Mis primeras palabras en inglés 🏠</h3>
+        <p style="text-align: center;">Palabras que usamos todos los días en nuestra casa. ¡Vamos a practicarlas!</p>
+        
+        <ul id="vocab-list">
+            </ul>
+
+        <a href="https://wa.me/50488463090?text=Hola%20Mister,%20aquí%20le%20envío%20mi%20audio%20practicando%20el%20vocabulario" target="_blank" class="btn-whatsapp">
+            📱 Después de practicar varias veces, envíale un audio al mister para que escuche y evalúe tu pronunciación
+        </a>
+
+        <button class="btn-back" onclick="showSection('main-menu')">⬅️ Regresar al menú principal</button>
+    </div>
+
+    <div id="greetings-section" class="section">
+        <h3>👋 Saludando en Inglés 👋</h3>
+        <p style="text-align: center;">¡Ser educado es súper importante! Así saludamos a las personas.</p>
+        
+        <ul id="greet-list">
+            </ul>
+
+        <hr style="border: 2px solid #1e90ff; margin: 30px 0;">
+
+        <h3>💬 Nuestra Primera Charla 💬</h3>
+        <p style="text-align: center;">Miren cómo platican Juan y María cuando se encuentran:</p>
+
+        <div class="dialogue">
+            <p><span class="person1">Juan:</span> Hello Maria! Good morning!<br>
+               <span class="spanish">(¡Hola María! ¡Buenos días!)</span><br>
+               <span class="pronunciation">Jelóu María! Gúd mórnin!</span></p>
+
+            <p><span class="person2">María:</span> Hi Juan! How are you?<br>
+               <span class="spanish">(¡Hola Juan! ¿Cómo estás?)</span><br>
+               <span class="pronunciation">Jái Juán! Jáu ár iú?</span></p>
+
+            <p><span class="person1">Juan:</span> I am fine, thank you. And you?<br>
+               <span class="spanish">(Estoy bien, gracias. ¿Y tú?)</span><br>
+               <span class="pronunciation">Ái ám fáin, zánkiu. Énd iú?</span></p>
+
+            <p><span class="person2">María:</span> I am great! Did you do the school homework?<br>
+               <span class="spanish">(¡Estoy genial! ¿Hiciste la tarea de la escuela?)</span><br>
+               <span class="pronunciation">Ái ám gréit! Díd iú dú de escúl jómguork?</span></p>
+               
+            <p><span class="person1">Juan:</span> Yes, it was easy!<br>
+               <span class="spanish">(¡Sí, estaba fácil!)</span><br>
+               <span class="pronunciation">Iés, ít uás ísi!</span></p>
+
+            <p><span class="person2">María:</span> Excellent! See you later!<br>
+               <span class="spanish">(¡Excelente! ¡Nos vemos luego!)</span><br>
+               <span class="pronunciation">Ékselent! Síi iú léiter!</span></p>
+               
+            <p><span class="person1">Juan:</span> Bye Maria!<br>
+               <span class="spanish">(¡Adiós María!)</span><br>
+               <span class="pronunciation">Bái María!</span></p>
+        </div>
+
+        <a href="https://wa.me/50488463090?text=Hola%20Mister,%20aquí%20le%20envío%20mi%20audio%20practicando%20los%20saludos" target="_blank" class="btn-whatsapp">
+            📱 Después de practicar varias veces, envíale un audio al mister para que escuche y evalúe tu pronunciación
+        </a>
+
+        <button class="btn-back" onclick="showSection('main-menu')">⬅️ Regresar al menú principal</button>
+    </div>
+
+    <script>
+        // Datos para las 20 palabras caseras
+        const vocabulario = [
+            { en: "House", es: "Casa", pro: "Jáus" },
+            { en: "Door", es: "Puerta", pro: "Dór" },
+            { en: "Window", es: "Ventana", pro: "Uíndou" },
+            { en: "Table", es: "Mesa", pro: "Téibol" },
+            { en: "Chair", es: "Silla", pro: "Chér" },
+            { en: "Bed", es: "Cama", pro: "Béd" },
+            { en: "Kitchen", es: "Cocina", pro: "Kíchen" },
+            { en: "Bathroom", es: "Baño", pro: "Bázrum" },
+            { en: "Water", es: "Agua", pro: "Uóter" },
+            { en: "Plate", es: "Plato", pro: "Pléit" },
+            { en: "Spoon", es: "Cuchara", pro: "Espún" },
+            { en: "Fork", es: "Tenedor", pro: "Fórk" },
+            { en: "Knife", es: "Cuchillo", pro: "Náif" },
+            { en: "Soap", es: "Jabón", pro: "Sóup" },
+            { en: "Towel", es: "Toalla", pro: "Táuel" },
+            { en: "Pillow", es: "Almohada", pro: "Pílou" },
+            { en: "Blanket", es: "Cobija", pro: "Blánket" },
+            { en: "Floor", es: "Piso", pro: "Flór" },
+            { en: "Roof", es: "Techo", pro: "Rúf" },
+            { en: "Garden", es: "Jardín", pro: "Gárden" }
+        ];
+
+        // Datos para los saludos
+        const saludos = [
+            { en: "Hello", es: "Hola", pro: "Jelóu" },
+            { en: "Good morning", es: "Buenos días", pro: "Gúd mórnin" },
+            { en: "Good afternoon", es: "Buenas tardes", pro: "Gúd áfternun" },
+            { en: "Good evening", es: "Buenas noches (al llegar)", pro: "Gúd ívnin" },
+            { en: "Good night", es: "Buenas noches (al despedirse)", pro: "Gúd náit" },
+            { en: "Happy day", es: "Feliz día", pro: "Jápi déi" },
+            { en: "How are you?", es: "¿Cómo estás?", pro: "Jáu ár iú?" },
+            { en: "Nice to meet you", es: "Es un gusto saludarte (conocerte)", pro: "Náis tu mítiu" },
+            { en: "How is it going?", es: "¿Cómo te va?", pro: "Jáu is ít góin?" },
+            { en: "How have you been?", es: "¿Cómo has estado?", pro: "Jáu jáv iú bín?" },
+            { en: "How is your health?", es: "¿Cómo estás de salud?", pro: "Jáu is iúr jélz?" },
+            { en: "How is your mom?", es: "¿Cómo está tu mamá?", pro: "Jáu is iúr mám?" },
+            { en: "How is your dad?", es: "¿Cómo está tu papá?", pro: "Jáu is iúr dád?" }
+        ];
+
+        // Función para cambiar de pantalla
+        function showSection(sectionId) {
+            // Ocultar todas las secciones y el menú
+            document.getElementById('main-menu').classList.remove('active');
+            document.getElementById('pronunciation-section').classList.remove('active');
+            document.getElementById('vocabulary-section').classList.remove('active');
+            document.getElementById('greetings-section').classList.remove('active');
+            
+            // Mostrar la sección solicitada
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Hacer scroll hacia arriba
+            window.scrollTo(0, 0);
+        }
+
+        // Función para renderizar listas
+        function renderList(datos, contenedorId) {
+            const contenedor = document.getElementById(contenedorId);
+            let html = '';
+            datos.forEach((item, index) => {
+                html += `
+                    <li>
+                        ${index + 1}. <span class="english">${item.en}</span> <br>
+                        <span class="spanish">(${item.es})</span>
+                        <span class="pronunciation">${item.pro}</span>
+                    </li>
+                `;
+            });
+            contenedor.innerHTML = html;
+        }
+
+        // Inicializar listas al cargar
+        window.onload = function() {
+            renderList(vocabulario, 'vocab-list');
+            renderList(saludos, 'greet-list');
+        };
+    </script>
+</body>
+</html>
