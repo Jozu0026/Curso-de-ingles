@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌟 Clase de Inglés de los Sábados 🌟</title>
+    <style>
+        /* 🎨 Variables de Colores Súper Divertidos */
+        :root {
+            --fondo: #E0F7FA;
+            --primario: #FF5252;
+            --secundario: #448AFF;
+            --acento: #FFEA00;
+            --texto: #37474F;
+            --tarjeta: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+            background-color: var(--fondo);
+            color: var(--texto);
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* 🏷️ Títulos Principales */
+        h1 {
+            color: var(--primario);
+            font-size: 3rem;
+            text-shadow: 3px 3px var(--acento);
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            color: var(--secundario);
+            font-size: 2rem;
+            margin-top: 0;
+            border-bottom: 4px dashed var(--acento);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        /* 🎮 Menú Dinámico de Botones */
+        .menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .btn {
+            background-color: var(--secundario);
+            color: white;
+            border: 4px solid #fff;
+            padding: 15px 25px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 6px 0 #2962FF;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 11px 0 #2962FF;
+        }
+
+        .btn:active {
+            transform: translateY(5px);
+            box-shadow: 0 1px 0 #2962FF;
+        }
+
+        .btn-rutinas { background-color: #FF4081; box-shadow: 0 6px 0 #C51162; }
+        .btn-rutinas:hover { box-shadow: 0 11px 0 #C51162; }
+        
+        .btn-ejercicios { background-color: #00E676; box-shadow: 0 6px 0 #00C853; }
+        .btn-ejercicios:hover { box-shadow: 0 11px 0 #00C853; }
+        
+        .btn-posesivos1 { background-color: #FF9100; box-shadow: 0 6px 0 #FF6D00; }
+        .btn-posesivos1:hover { box-shadow: 0 11px 0 #FF6D00; }
+        
+        .btn-posesivos2 { background-color: #9C27B0; box-shadow: 0 6px 0 #6A1B9A; }
+        .btn-posesivos2:hover { box-shadow: 0 11px 0 #6A1B9A; }
+
+        /* 📦 Secciones de Contenido */
+        .seccion {
+            display: none; /* Oculto por defecto */
+            background-color: var(--tarjeta);
+            border: 5px solid var(--acento);
+            border-radius: 25px;
+            padding: 30px;
+            margin-top: 20px;
+            text-align: left;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            animation: aparecer 0.6s ease-in-out;
+        }
+
+        .seccion.activa {
+            display: block; /* Solo se muestra la sección activa */
+        }
+
+        @keyframes aparecer {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* 📇 Tarjetas de Vocabulario y Ejercicios */
+        .tarjeta {
+            background-color: #F3E5F5;
+            border-left: 10px solid var(--primario);
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .ingles { color: #1565C0; font-size: 2rem; font-weight: bold; margin: 0; }
+        .pronunciacion { color: #2E7D32; font-size: 1.5rem; font-style: italic; margin: 0; }
+        .espanol { color: #D84315; font-size: 1.4rem; margin: 0; }
+
+        /* 📝 Explicaciones Textuales */
+        .explicacion {
+            background-color: #FFF9C4;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.5rem;
+            line-height: 1.6;
+            border: 3px dashed #FBC02D;
+            margin-bottom: 20px;
+        }
+
+        /* 📣 Leyenda Final */
+        .leyenda {
+            margin-top: 50px;
+            background-color: var(--acento);
+            color: #d35400;
+            padding: 25px;
+            border-radius: 20px;
+            font-size: 1.6rem;
+            font-weight: bold;
+            border: 5px solid #FF8F00;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>🌟 Clase de Inglés de los Sábados 🌟</h1>
+    <h2>Repaso Último Tema: My Amazing Daily Routine 📅</h2>
+
+    <div class="menu-container">
+        <button class="btn" onclick="mostrarSeccion('intro')">🏠 Inicio</button>
+        <button class="btn btn-rutinas" onclick="mostrarSeccion('vocabulario')">📚 20 Palabras de Rutina</button>
+        <button class="btn btn-ejercicios" onclick="mostrarSeccion('ejercicios')">✍️ Ejercicios Resueltos</button>
+        <button class="btn btn-posesivos1" onclick="mostrarSeccion('posesivos-my')">🔑 Pronombres: Mi / Tu</button>
+        <button class="btn btn-posesivos2" onclick="mostrarSeccion('posesivos-his')">👑 Pronombres: Su (de él/ella)</button>
+    </div>
+
+    <div id="intro" class="seccion activa">
+        <div class="explicacion">
+            <h3>🤔 ¿Qué es una Rutina? ⏰</h3>
+            <p>¡Una rutina son todas esas cosas increíbles que hacemos todos los días! Desde que nos levantamos de la cama y nos lavamos los dientes, hasta que comemos nuestro almuerzo y jugamos un rato.</p>
+            <p><strong>Por ejemplo:</strong> Yo despierto temprano, me peino y voy a la escuela. ¡Todo eso es tu <em>Daily Routine</em>!</p>
+        </div>
+        <div style="text-align: center; font-size: 5rem;">
+            🛌 🪥 🎒 🏫 🎮 🛌
+        </div>
+    </div>
+
+    <div id="vocabulario" class="seccion">
+        <h3 style="font-size: 2rem; color: #C51162;">📚 Vocabulario de Rutinas (¡Fácil y Práctico!)</h3>
+        
+        <div id="lista-vocabulario">
+            </div>
+    </div>
+
+    <div id="ejercicios" class="seccion">
+        <div class="explicacion">
+            <h3>👁️ ¡OJO! Regla Súper Importante 👁️</h3>
+            <p>Cuando hablamos de nosotros mismos <strong>(I)</strong> o de tú <strong>(You)</strong> los verbos son normales: <em>I play soccer</em>.</p>
+            <p>Pero cuando hablamos de Él <strong>(He)</strong>, Ella <strong>(She)</strong> o Eso/Animal <strong>(It)</strong>... ¡Le agregamos una "S" al final de la acción! 🚀 Ejemplo: <em>He play<strong>s</strong> soccer.</em></p>
+        </div>
+        <h3 style="font-size: 2rem; color: #00C853;">✍️ 10 Ejercicios Resueltos</h3>
+        <div id="lista-ejercicios">
+            </div>
+    </div>
+
+    <div id="posesivos-my" class="seccion">
+        <div class="explicacion">
+            <h3 style="font-size: 2rem; color: #FF6D00;">🔑 ¿De quién es? (Uso de My / Your)</h3>
+            <p>Usamos estas palabras para decir que algo es nuestro o de la persona con la que hablamos.</p>
+            <ul>
+                <li>👉 <strong>MY</strong> (mai) = Mi / Mis (¡Es mío!)</li>
+                <li>👉 <strong>YOUR</strong> (iur) = Tu / Tus (¡Es tuyo!)</li>
+            </ul>
+            <div class="tarjeta">
+                <p class="ingles">I do MY homework.</p>
+                <p class="pronunciacion">(ai du mai jom-uork)</p>
+                <p class="espanol">Yo hago MI tarea.</p>
+            </div>
+            <div class="tarjeta">
+                <p class="ingles">You wash YOUR face.</p>
+                <p class="pronunciacion">(iu uash iur feis)</p>
+                <p class="espanol">Tú lavas TU cara.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="posesivos-his" class="seccion">
+        <div class="explicacion">
+            <h3 style="font-size: 2rem; color: #6A1B9A;">👑 El "SU" de otras personas</h3>
+            <p>En inglés, no decimos "su" para todos igual. ¡Cambia dependiendo de quién sea!</p>
+            <ul>
+                <li>👦 <strong>HIS</strong> (jis) = Su (de él / de un niño)</li>
+                <li>👧 <strong>HER</strong> (jer) = Su (de ella / de una niña)</li>
+                <li>🐶 <strong>ITS</strong> (its) = Su (de una cosa o animal)</li>
+            </ul>
+            <div class="tarjeta">
+                <p class="ingles">Juan eats HIS lunch.</p>
+                <p class="pronunciacion">(juan its jis lanch)</p>
+                <p class="espanol">Juan come SU almuerzo (el de él).</p>
+            </div>
+            <div class="tarjeta">
+                <p class="ingles">Anna brushes HER teeth.</p>
+                <p class="pronunciacion">(ana brashes jer tith)</p>
+                <p class="espanol">Anna lava SUS dientes (los de ella).</p>
+            </div>
+            <div class="tarjeta">
+                <p class="ingles">The cat cleans ITS room.</p>
+                <p class="pronunciacion">(de cat clins its rum)</p>
+                <p class="espanol">El gato limpia SU cuarto (el del animal).</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="leyenda">
+        🚀 ¡Ponte Chiva, Campeón! 🚀<br>
+        Recuerda darle un pequeño repaso a estas palabras entre semana. 📖 Dedica solo 10 minutitos en tu casa, y verás cómo las clases de los sábados serán mucho más fáciles, divertidas y le sacarás el máximo provecho. ¡Tú eres capaz de lograr cosas increíbles! 🏆✨
+    </div>
+
+    <script>
+        // Función para cambiar entre las secciones
+        function mostrarSeccion(id) {
+            // Ocultar todas las secciones
+            let secciones = document.querySelectorAll('.seccion');
+            secciones.forEach(sec => sec.classList.remove('activa'));
+            
+            // Mostrar la sección elegida
+            document.getElementById(id).classList.add('activa');
+        }
+
+        // Datos del Vocabulario (20 palabras de tu pizarra + algunas extras para completar)
+        const vocabulario = [
+            { en: "Wake up", pr: "ueic ap", es: "Despertarse 🥱" },
+            { en: "Brush my teeth", pr: "brash mai tith", es: "Lavar mis dientes 🪥" },
+            { en: "Wash my face", pr: "uash mai feis", es: "Lavar mi cara 🧼" },
+            { en: "Comb my hair", pr: "com mai jeir", es: "Peinarme 💇‍♂️" },
+            { en: "Get dressed", pr: "guet drest", es: "Vestirme 👕" },
+            { en: "Eat breakfast", pr: "it brekfast", es: "Desayunar 🥞" },
+            { en: "Take my backpack", pr: "teic mai bacpac", es: "Tomar mi mochila 🎒" },
+            { en: "Go to school", pr: "gou tu scul", es: "Ir a la escuela 🏫" },
+            { en: "Read a book", pr: "rid a buk", es: "Leer un libro 📖" },
+            { en: "Eat my lunch", pr: "it mai lanch", es: "Comer mi almuerzo 🥪" },
+            { en: "Do my homework", pr: "du mai jom-uork", es: "Hacer mi tarea 📝" },
+            { en: "Play in my PS5", pr: "plei in mai pi-es-faiv", es: "Jugar en mi play 5 🎮" },
+            { en: "Clean my room", pr: "clin mai rum", es: "Limpiar mi cuarto 🧹" },
+            { en: "Watch TV", pr: "uach ti vi", es: "Mirar tele 📺" },
+            { en: "Eat my dinner", pr: "it mai diner", es: "Cenar 🍽️" },
+            { en: "Take a shower", pr: "teic a shauer", es: "Bañarme / Tomar ducha 🚿" },
+            { en: "Play soccer", pr: "plei soker", es: "Jugar fútbol ⚽" },
+            { en: "Drink water", pr: "drinc uater", es: "Beber agua 💧" },
+            { en: "Listen to music", pr: "lisen tu miusic", es: "Escuchar música 🎧" },
+            { en: "Go to sleep", pr: "gou tu slip", es: "Ir a dormir 🛌" }
+        ];
+
+        // Datos de Ejercicios Resueltos
+        const ejercicios = [
+            { en: "I play soccer every day.", pr: "ai plei soker everi dei", es: "Yo juego fútbol todos los días." },
+            { en: "She reads a book.", pr: "shi rids a buk", es: "Ella lee un libro." },
+            { en: "He eats pizza.", pr: "ji its pisa", es: "Él come pizza." },
+            { en: "I do my homework.", pr: "ai du mai jom-uork", es: "Yo hago mi tarea." },
+            { en: "Anna brushes her teeth.", pr: "ana brashes jer tith", es: "Anna lava sus dientes." },
+            { en: "Juan eats his lunch.", pr: "juan its jis lanch", es: "Juan come su almuerzo." },
+            { en: "It cleans its room.", pr: "it clins its rum", es: "Limpia su cuarto (el robot/animal)." },
+            { en: "You take your backpack.", pr: "iu teic iur bacpac", es: "Tú tomas tu mochila." },
+            { en: "He plays in his PS5.", pr: "ji pleis in jis pi-es-faiv", es: "Él juega en su PS5." },
+            { en: "She watches TV.", pr: "shi uaches ti vi", es: "Ella mira la tele." }
+        ];
+
+        // Renderizar el vocabulario automáticamente
+        const listaVocab = document.getElementById('lista-vocabulario');
+        vocabulario.forEach((item, index) => {
+            listaVocab.innerHTML += `
+                <div class="tarjeta">
+                    <p class="ingles">${index + 1}. ${item.en}</p>
+                    <p class="pronunciacion">🗣️ (${item.pr})</p>
+                    <p class="espanol">🇪🇸 ${item.es}</p>
+                </div>
+            `;
+        });
+
+        // Renderizar los ejercicios automáticamente
+        const listaEjer = document.getElementById('lista-ejercicios');
+        ejercicios.forEach((item, index) => {
+            listaEjer.innerHTML += `
+                <div class="tarjeta" style="border-left-color: #00E676; background-color: #E8F5E9;">
+                    <p class="ingles">✅ ${index + 1}. ${item.en}</p>
+                    <p class="pronunciacion">🗣️ (${item.pr})</p>
+                    <p class="espanol">🇪🇸 ${item.es}</p>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
